@@ -1,4 +1,8 @@
 name: firestore_wrapper_web
-
+environment:
+    sdk: '>=2.0.0 <3.0.0'
 dependencies:
-    firestore_wrapper: any
+    firestore_wrapper:
+        git:
+            url: https://github.com/paulorobertocruz/firestore_wrapper.git
+            path: packages/firestore_wrapper
