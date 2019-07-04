@@ -1,0 +1,4 @@
+name: firestore_wrapper_web
+
+dependencies:
+    firestore_wrapper: any
