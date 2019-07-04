@@ -1,3 +1,5 @@
+part of 'package:firestore_wrapper/firestore_wrapper.dart';
+
 abstract class DocumentSnapshot{
   Map<String, dynamic> get data;
   String get documentID;

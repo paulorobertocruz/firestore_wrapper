@@ -1,3 +1,5 @@
+part of 'package:firestore_wrapper/firestore_wrapper.dart';
+
 abstract class CollectionReference extends Query{
   String get id;
   String get path;
