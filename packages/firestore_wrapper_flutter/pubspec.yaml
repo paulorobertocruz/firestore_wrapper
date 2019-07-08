@@ -2,6 +2,9 @@ name: firestore_wrapper_flutter
 environment:
     sdk: '>=2.0.0 <3.0.0'
 dependencies:
+    flutter:
+        sdk: flutter
+    cloud_firestore: ^0.12.6
     firestore_wrapper:
         git:
             url: https://github.com/paulorobertocruz/firestore_wrapper.git
