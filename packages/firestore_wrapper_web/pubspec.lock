@@ -34,7 +34,7 @@ packages:
     description:
       path: "packages/firestore_wrapper"
       ref: HEAD
-      resolved-ref: "99a53c94412ab82b32cfe1b8c5b9785c251af119"
+      resolved-ref: "21db673fddd6a2060e04679889736ecbf3016ade"
       url: "https://github.com/paulorobertocruz/firestore_wrapper.git"
     source: git
     version: "0.0.1"
