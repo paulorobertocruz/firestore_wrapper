@@ -1,5 +1,5 @@
 name: firestore_wrapper
-version: 0.0.2
+version: 0.0.3
 description: Simple Firestore wrapper
 homepage: https://github.com/paulorobertocruz/firestore_wrapper
 environment:
