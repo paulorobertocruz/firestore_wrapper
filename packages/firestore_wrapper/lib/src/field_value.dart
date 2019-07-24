@@ -1,39 +1,15 @@
 part of 'package:firestore_wrapper/firestore_wrapper.dart';
 
-enum FieldValueType {
-  arrayUnion,
-  arrayRemove,
-  delete,
-  serverTimestamp,
-  incrementDouble,
-  incrementInteger,
-}
 
-class FieldValue {
-  FieldValue._(this.type, this.value);
+abstract class FieldValue {
 
-  final FieldValueType type;
+  dynamic arrayUnion(List<dynamic> elements);
 
-  final dynamic value;
+  dynamic arrayRemove(List<dynamic> elements);
 
-  static FieldValue arrayUnion(List<dynamic> elements) =>
-      FieldValue._(FieldValueType.arrayUnion, elements);
+  dynamic delete();
 
-  static FieldValue arrayRemove(List<dynamic> elements) =>
-      FieldValue._(FieldValueType.arrayRemove, elements);
+  dynamic serverTimestamp();
 
-  static FieldValue delete() => FieldValue._(FieldValueType.delete, null);
-
-  static FieldValue serverTimestamp() =>
-      FieldValue._(FieldValueType.serverTimestamp, null);
-
-  static FieldValue increment(num value) {
-    assert(value is int || value is double);
-    if (value is double) {
-      return FieldValue._(FieldValueType.incrementDouble, value);
-    } else if (value is int) {
-      return FieldValue._(FieldValueType.incrementInteger, value);
-    }
-    return null;
-  }
+  dynamic increment(num value);
 }
