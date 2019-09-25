@@ -2,7 +2,10 @@ name: firestore_wrapper_web
 environment:
     sdk: '>=2.0.0 <3.0.0'
 dependencies:
-    firebase: ^5.0.3
+    # firebase: ^6.0.0
+    firebase:
+        git:
+            url: https://github.com/FirebaseExtended/firebase-dart.git            
     firestore_wrapper:
         git:
             url: https://github.com/paulorobertocruz/firestore_wrapper.git

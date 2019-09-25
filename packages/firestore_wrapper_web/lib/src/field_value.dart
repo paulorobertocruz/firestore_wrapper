@@ -16,5 +16,5 @@ class FieldValue extends fw.FieldValue{
   
   fs.FieldValue serverTimestamp() => fs.FieldValue.serverTimestamp();
   
-  fs.FieldValue increment(num value) => null;
+  fs.FieldValue increment(num value) => fs.FieldValue.increment(value);
 }
