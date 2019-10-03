@@ -79,6 +79,7 @@ class CollectionReference extends fw.CollectionReference {
           isGreaterThan: isGreaterThan,
           isGreaterThanOrEqualTo: isGreaterThanOrEqualTo,
           isLessThanOrEqualTo: isLessThanOrEqualTo,
+          arrayContains: arrayContains,
           isNull: isNull,
         ));
   }
