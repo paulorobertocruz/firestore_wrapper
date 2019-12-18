@@ -69,6 +69,8 @@ class CollectionReference extends fw.CollectionReference {
       isGreaterThan,
       isGreaterThanOrEqualTo,
       arrayContains,
+      List<dynamic> arrayContainsAny,
+      List<dynamic> whereIn,
       bool isNull}) {
     return Query(
         _firestore,
@@ -80,6 +82,9 @@ class CollectionReference extends fw.CollectionReference {
           isGreaterThanOrEqualTo: isGreaterThanOrEqualTo,
           isLessThanOrEqualTo: isLessThanOrEqualTo,
           arrayContains: arrayContains,
+          arrayContainsAny: arrayContainsAny,
+          whereIn: whereIn,
+          isNull: isNull,
           isNull: isNull,
         ));
   }

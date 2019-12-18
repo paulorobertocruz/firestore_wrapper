@@ -28,7 +28,9 @@ class Query extends fw.Query {
 
   @override
   Stream<fw.QuerySnapshot> snapshots() {
-    return _ref.snapshots().map((querySnap) => QuerySnapshot(_firestore, querySnap));
+    return _ref
+        .snapshots()
+        .map((querySnap) => QuerySnapshot(_firestore, querySnap));
   }
 
   @override
@@ -51,6 +53,7 @@ class Query extends fw.Query {
           isGreaterThan: isGreaterThan,
           isGreaterThanOrEqualTo: isGreaterThanOrEqualTo,
           isLessThanOrEqualTo: isLessThanOrEqualTo,
+          arrayContains: arrayContains,
           arrayContainsAny: arrayContainsAny,
           whereIn: whereIn,
           isNull: isNull,
