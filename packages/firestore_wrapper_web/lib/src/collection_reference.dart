@@ -5,7 +5,7 @@ import 'package:firestore_wrapper_web/src/document_reference.dart';
 import 'package:firestore_wrapper_web/src/query_snapshot.dart';
 import 'package:firestore_wrapper_web/src/query.dart';
 
-class CollectionReference extends fsw.CollectionReference{
+class CollectionReference extends fsw.CollectionReference {
   final fs.CollectionReference _ref;
   final Firestore _firestore;
 
@@ -39,7 +39,7 @@ class CollectionReference extends fsw.CollectionReference{
 
   @override
   Query orderBy(String field, {bool descending = false}) {
-    return Query(_firestore, _ref.orderBy(field, descending? "desc": "asc"));
+    return Query(_firestore, _ref.orderBy(field, descending ? "desc" : "asc"));
   }
 
   @override
@@ -57,48 +57,53 @@ class CollectionReference extends fsw.CollectionReference{
 
   @override
   Stream<QuerySnapshot> snapshots() {
-    return _ref.onSnapshot.map((snap)=>QuerySnapshot(_firestore, snap));
+    return _ref.onSnapshot.map((snap) => QuerySnapshot(_firestore, snap));
   }
 
   @override
   Query where(
-    String field,
-    {
-      isEqualTo,
-      isLessThan,
-      isLessThanOrEqualTo,
-      isGreaterThan, 
-      isGreaterThanOrEqualTo, 
-      arrayContains,
-      bool isNull,
-    }) {    
+    String field, {
+    isEqualTo,
+    isLessThan,
+    isLessThanOrEqualTo,
+    isGreaterThan,
+    isGreaterThanOrEqualTo,
+    arrayContains,
+    List<dynamic> arrayContainsAny,
+    List<dynamic> whereIn,
+    bool isNull,
+  }) {
     String opStr;
     dynamic value;
-    if(isEqualTo != null){
+    if (isEqualTo != null) {
       opStr = "==";
       value = isEqualTo;
-    }
-    else if(isLessThan != null){
+    } else if (isLessThan != null) {
       opStr = "<";
       value = isLessThan;
-    }
-    else if(isLessThanOrEqualTo != null){
+    } else if (isLessThanOrEqualTo != null) {
       opStr = "<=";
       value = isLessThanOrEqualTo;
-    }
-    else if(isGreaterThan != null){
+    } else if (isGreaterThan != null) {
       opStr = ">";
       value = isGreaterThan;
-    }
-    else if(isGreaterThanOrEqualTo != null){
+    } else if (isGreaterThanOrEqualTo != null) {
       opStr = ">=";
       value = isGreaterThanOrEqualTo;
-    }
-    else if(arrayContains != null){
-      //TODO: não sei o que fazer aqui referenciar firebase web
-    }
-    else if(isNull != null){
-      //TODO: não sei o que fazer aqui, referenciar firebase web 
+    } else if (arrayContains != null) {
+      opStr = "array-contains";
+      value = arrayContains;
+      // query = query.where(field, "array-contains", arrayContains);
+    } else if (arrayContainsAny != null) {
+      opStr = "array-contains-any";
+      value = arrayContainsAny;
+      // query = query.where(field, "array-contains-any", arrayContainsAny);
+    } else if (whereIn != null) {
+      opStr = "in";
+      value = whereIn;
+      // query = query.where(field, "in", whereIn);
+    } else if (isNull != null) {
+      //TODO: não sei o que fazer aqui, referenciar firebase web
     }
     return Query(_firestore, _ref.where(field, opStr, value));
   }
