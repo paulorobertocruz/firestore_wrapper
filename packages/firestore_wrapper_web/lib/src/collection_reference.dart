@@ -93,15 +93,12 @@ class CollectionReference extends fsw.CollectionReference {
     } else if (arrayContains != null) {
       opStr = "array-contains";
       value = arrayContains;
-      // query = query.where(field, "array-contains", arrayContains);
     } else if (arrayContainsAny != null) {
       opStr = "array-contains-any";
       value = arrayContainsAny;
-      // query = query.where(field, "array-contains-any", arrayContainsAny);
     } else if (whereIn != null) {
       opStr = "in";
       value = whereIn;
-      // query = query.where(field, "in", whereIn);
     } else if (isNull != null) {
       //TODO: não sei o que fazer aqui, referenciar firebase web
     }
