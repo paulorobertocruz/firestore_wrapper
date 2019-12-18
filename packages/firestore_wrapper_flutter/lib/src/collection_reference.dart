@@ -85,7 +85,6 @@ class CollectionReference extends fw.CollectionReference {
           arrayContainsAny: arrayContainsAny,
           whereIn: whereIn,
           isNull: isNull,
-          isNull: isNull,
         ));
   }
 }
