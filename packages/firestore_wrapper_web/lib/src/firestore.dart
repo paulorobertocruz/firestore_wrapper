@@ -3,8 +3,9 @@ import 'package:firebase/firebase.dart' as fb;
 
 import 'package:firestore_wrapper_web/src/collection_reference.dart';
 import 'package:firestore_wrapper_web/src/document_reference.dart';
+import 'package:firestore_wrapper_web/src/query.dart';
 
-class Firestore extends fsw.Firestore{
+class Firestore extends fsw.Firestore {
   static final _firestore = fb.firestore();
   static final Firestore instance = Firestore();
 
@@ -14,8 +15,12 @@ class Firestore extends fsw.Firestore{
   }
 
   @override
+  Query collectionGroup(String path) {
+    return Query(this, _firestore.collectionGroup(path));
+  }
+
+  @override
   DocumentReference document(String path) {
     return DocumentReference(this, _firestore.doc(path));
   }
-
 }
