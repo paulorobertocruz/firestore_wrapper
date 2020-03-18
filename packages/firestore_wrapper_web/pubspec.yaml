@@ -1,4 +1,5 @@
 name: firestore_wrapper_web
+version: 0.0.4
 environment:
     sdk: '>=2.0.0 <3.0.0'
 dependencies:
